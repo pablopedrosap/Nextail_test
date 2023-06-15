@@ -25,3 +25,20 @@ class Checkout:
         total += pants_count * self.pricing_rules['PANTS']
 
         return total
+
+
+pricing_rules = {
+    'VOUCHER': 5,
+    'TSHIRT': 20,
+    'PANTS': 7.5
+}
+
+checkout = Checkout(pricing_rules)
+while True:
+    product = input('Select voucher/tshirt/pants or 999 to finish order: ').upper()
+    if product == '999':
+        break
+    else:
+        checkout.scan(product)
+
+print(checkout.calculate_total())
